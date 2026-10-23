@@ -17,7 +17,7 @@ Visit http://localhost:8000. Rebuild after editing. `_site/` is generated and ig
 ## Maintain content
 
 - **Biography and academic details:** edit `data/profile.json`. Its `bio`, `themes`, `education`, `experience`, `service`, and `skills` arrays hold the corresponding text.
-- **Profile photograph:** add your own photo to `assets/images/`, then change `photo` in `data/profile.json` from `null` to its repository-relative path, e.g. `assets/images/profile.jpg`. Use a roughly 6:7 crop. The current monogram is explicitly labeled as a photograph placeholder.
+- **Profile photograph:** add your own photo to `assets/images/`, then set `photo` in `data/profile.json` to its repository-relative path. The current photograph is `assets/images/profile.png`. The layout displays a centered 6:7 crop using CSS without modifying the source image; set `photo` to `null` to restore the labeled placeholder.
 - **Publications:** add an object to `data/publications.json`, with a unique `id`, `category`, exact `title`, ordered `authors`, and `venue`. Add `year` only for published work; use `status` for forthcoming or unpublished work. `doi` is optional and contains only the DOI, without the URL prefix. Author names matching `Shahbaznejad, S.` are bolded. Categories appear in their first-occurrence order. No publication PDFs or code repositories have been supplied or verified; add links only when available, extending the publication renderer in `scripts/build.py` as needed.
 - **Projects:** add an object to `data/projects.json` with `title`, `summary`, `methods`, optional `detail`, and a `publications` array of publication IDs.
 - **CV:** replace `assets/cv/Shahbaznejad_CV.pdf` with your new original PDF. The build copies it byte-for-byte. **The current PDF contains a personal phone number and is publicly downloadable.** This was flagged before publication as requested; the phone is excluded from the HTML. To remove it from the PDF, supply a redacted original or explicitly authorize modification.
@@ -34,7 +34,7 @@ The root URL, canonical, Open Graph URL, sitemap, and Person structured data der
 
 Academic content was transcribed from the original `Shahbaznejad_CV.pdf` supplied on October 23, 2026, with the user's brief guiding the introduction and structure. Published titles, supplied author order, venues, years, and DOIs are preserved. No fabricated PDF/code links, citations, experimental figures, or conclusions.
 
-- No professional photograph was supplied; replace the labeled placeholder when ready.
+- The user-supplied profile photograph is included unchanged at `assets/images/profile.png`.
 - The full author list for “Frozen Pretrained Vision Representations and Human Judgments of Material Appearance in Natural Photographs” is abbreviated as `Shahbaznejad, S., et al.` in the CV. It remains abbreviated pending an authoritative full list.
 - Google Scholar URL was extracted directly from the CV's hyperlink and the profile name was verified. LinkedIn blocks automated access (HTTP 999), so its supplied URL is retained without a claim of automated verification.
 - CVCS and Electronic Imaging conference records have no DOIs in the supplied CV; none are guessed.
