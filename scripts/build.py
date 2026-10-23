@@ -5,6 +5,7 @@ from html import escape
 from string import Template
 import json
 import shutil
+from urllib.parse import urlencode, quote
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / '_site'
@@ -24,10 +25,11 @@ def icon(name):
         'CV': '<path d="M14 2H5v20h14V7l-5-5Zm0 0v6h5M8 12h8M8 16h8"/>',
     }
     return '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+paths[name]+'</svg>'
-nav = ''.join(f'<a href="{e(url)}">{e(label)}</a>' for label,url in p['navigation'])
+cv_request = 'mailto:' + p['email'] + '?' + urlencode({'subject': 'CV request — Soroush Shahbaznejad', 'body': 'Hello Soroush,\n\nI would like to request a copy of your CV.\n\nName:\nAffiliation:\nReason for request:\n\nThank you.'}, quote_via=quote)
+nav = ''.join(f'<a href="{e(url)}">{e(label)}</a>' for label,url in p['navigation'] if label != 'CV')
 links = dict(p['links'])
-links.update({'Email':'mailto:'+p['email'],'CV':'assets/cv/Shahbaznejad_CV.pdf'})
-social = ''.join(f'<a class="profile-link" href="{e(url)}">{icon(label)}<span>{e(label)}</span></a>' for label,url in links.items())
+links.update({'Email':'mailto:'+p['email'],'CV':cv_request})
+social = ''.join(f'<a class="profile-link" href="{e(url)}">{icon(label)}<span>{e("Request CV" if label == "CV" else label)}</span></a>' for label,url in links.items())
 photo = ('<img class="portrait" src="'+e(p['photo'])+'" alt="Soroush Shahbaznejad" width="240" height="280">') if p['photo'] else '<div class="portrait-placeholder" role="img" aria-label="Profile photograph placeholder"><span class="monogram" aria-hidden="true">SS</span><span>Profile photograph<br>to be added</span></div>'
 research = ''.join(f'<article class="theme"><span class="index">0{i+1}</span><h3>{e(title)}</h3><p>{e(body)}</p></article>' for i,(title,body) in enumerate(p['themes']))
 bibliography = ''
@@ -51,12 +53,14 @@ def timeline(key):
 service = ''.join(f'<article class="service-item"><span class="date">{e(date)}</span><h3>{e(title)}</h3><p>{e(body)}</p></article>' for date,title,body in p['service'])
 skills = ''.join(f'<div><h3>{e(title)}</h3><p>{e(body)}</p></div>' for title,body in p['skills'])
 schema = {'@context':'https://schema.org','@type':'Person','name':p['name'],'url':p['url'],'jobTitle':p['role'],'affiliation':{'@type':'CollegeOrUniversity','name':p['institution']},'email':p['email'],'sameAs':list(p['links'].values()),'knowsAbout':['Color science','Computer vision','Human visual perception','Material appearance','Deep learning','Vision foundation models','Psychophysics','HDR imaging']}
-values = dict(name=e(p['name']),role=e(p['role']),lab=e(p['lab']),institution=e(p['institution']),email=e(p['email']),nav=nav,social=social,photo=photo,bio=''.join('<p>'+e(b)+'</p>' for b in p['bio']),research=research,publications=bibliography,projects=project_html,education=timeline('education'),experience=timeline('experience'),service=service,skills=skills,schema=json.dumps(schema),url=e(p['url']))
+values = dict(name=e(p['name']),role=e(p['role']),lab=e(p['lab']),institution=e(p['institution']),email=e(p['email']),nav=nav,social=social,photo=photo,bio=''.join('<p>'+e(b)+'</p>' for b in p['bio']),research=research,publications=bibliography,projects=project_html,education=timeline('education'),experience=timeline('experience'),service=service,skills=skills,schema=json.dumps(schema),url=e(p['url']),cv_request=e(cv_request))
 html = Template((ROOT/'templates/index.html').read_text()).substitute(values)
 if OUT.exists(): shutil.rmtree(OUT)
 OUT.mkdir()
 (OUT/'index.html').write_text(html)
-shutil.copytree(ROOT/'assets',OUT/'assets')
+# Copy only public asset directories; CV files must never enter deployment.
+for directory in ('css', 'images'):
+    shutil.copytree(ROOT/'assets'/directory, OUT/'assets'/directory)
 (OUT/'.nojekyll').touch()
 (OUT/'robots.txt').write_text('User-agent: *\nAllow: /\nSitemap: '+p['url']+'sitemap.xml\n')
 (OUT/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>'+e(p['url'])+'</loc></url></urlset>\n')

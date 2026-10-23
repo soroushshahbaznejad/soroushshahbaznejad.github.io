@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Check generated anchors, local assets, metadata, bibliography, and CV integrity."""
+"""Check generated anchors, local assets, metadata, bibliography, and request-only CV access."""
 from pathlib import Path
 from html.parser import HTMLParser
 from urllib.parse import urlsplit, unquote
 import json
-import hashlib
+
 ROOT=Path(__file__).resolve().parents[1]
 SITE=ROOT/'_site'
 class Page(HTMLParser):
@@ -39,5 +39,8 @@ for record in json.loads((ROOT/'data/publications.json').read_text()):
     assert 'Shahbaznejad, S.' in record['authors']
     if record['id'].startswith('f'): assert record.get('status') and not record.get('year')
 assert (SITE/'sitemap.xml').is_file() and (SITE/'robots.txt').is_file()
-assert hashlib.sha256((SITE/'assets/cv/Shahbaznejad_CV.pdf').read_bytes()).digest()==hashlib.sha256((ROOT/'assets/cv/Shahbaznejad_CV.pdf').read_bytes()).digest()
-print(f'PASS: {len(p.links)} links, {len(p.ids)} unique anchors, assets, SEO, structured data, publication status, no phone in HTML, and unchanged CV copy.')
+assert not list(SITE.rglob('*.pdf')), 'A PDF must not be publicly deployed'
+assert 'download' not in html.lower() and 'assets/cv/' not in html, 'Public CV download remains'
+requests=[u for u in p.links if u.startswith('mailto:') and 'subject=CV' in u]
+assert len(requests)==3, 'Expected request links in navigation, profile, and CV section'
+print(f'PASS: {len(p.links)} links, {len(p.ids)} unique anchors, assets, SEO, structured data, publication status, no phone in HTML, and request-only CV access (no deployed PDFs).')

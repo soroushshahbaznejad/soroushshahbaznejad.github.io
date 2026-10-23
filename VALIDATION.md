@@ -20,3 +20,11 @@ Replaced the downloadable CV with the user-supplied `Soroush_Shahbaznejad__Resum
 ## Profile photograph — October 23, 2026
 
 Added the supplied `profile.png` unchanged and enabled it through profile configuration. Build and asset validation passed. Browser review confirmed the image loads with descriptive alt text, a centered CSS crop, and no horizontal overflow on desktop and a 390×844 mobile viewport.
+
+## Compact redesign and request-only CV — October 23, 2026
+
+Replaced the light, widely spaced layout with an original dark, rounded-panel design informed by the requested reference. Desktop section padding is now 30px rather than 72px; mobile section padding is 24px rather than 45px. Removed the oversized two-line identity presentation and decorative numbered section labels.
+
+Replaced all three public CV entry points with prefilled email requests. Removed the CV PDF from the current repository and restricted build asset copying to CSS and images. Validation now rejects any deployed PDF or CV download link. Historical Git commits retain previously published files; no history rewriting was performed. Previous CV integrity checks above describe historical deployments.
+
+Redesign browser review: desktop 1440×1000, mobile 390×844, and compact 320×740 showed no horizontal overflow. The portrait loads, bibliography cards remain readable, publication navigation works, and browser error/warning logs are empty. Verified all three CV request URLs target the correct email with a prefilled subject and body; no public PDF links remain.
