@@ -11,8 +11,12 @@
 - Tracked text scanned for recognized GitHub/OpenAI credential and private-key patterns; none found. No API keys or external runtime services required.
 - GitHub pull-request build and validation passed. Pages configured for Actions with HTTPS enforced.
 
-Known content limits: profile photograph not supplied; labeled placeholder shown. Full author list for the planned CVIU submission is abbreviated in the CV and has not been invented. No public publication PDFs or corresponding code repositories supplied or linked. Personal phone remains in the original downloadable CV, as flagged before publication.
+Known content limits: full author list for the planned CVIU submission is abbreviated in the CV and has not been invented. No public publication PDFs or corresponding code repositories supplied or linked. Personal phone remains in the original downloadable CV, as flagged before publication.
 
 ## CV replacement — October 23, 2026
 
 Replaced the downloadable CV with the user-supplied `Soroush_Shahbaznejad__Resume (7).pdf`, without modifying its contents. The public download path remains unchanged. Local build, link validation, and byte-for-byte source comparison passed. The replacement also contains a phone number, flagged before publication.
+
+## Profile photograph — October 23, 2026
+
+Added the supplied `profile.png` unchanged and enabled it through profile configuration. Build and asset validation passed. Browser review confirmed the image loads with descriptive alt text, a centered CSS crop, and no horizontal overflow on desktop and a 390×844 mobile viewport.
