@@ -1,0 +1,43 @@
+{
+ "name":"Soroush Shahbaznejad",
+ "role":"Ph.D. Student in Color Science",
+ "lab":"Munsell Color Science Laboratory",
+ "institution":"Rochester Institute of Technology",
+ "location":"Rochester, New York, USA",
+ "email":"ss3105@g.rit.edu",
+ "url":"https://soroushshahbaznejad.github.io/",
+ "photo":null,
+ "links":{"Google Scholar":"https://scholar.google.com/citations?user=y1a6NjsAAAAJ","GitHub":"https://github.com/soroushshahbaznejad","LinkedIn":"https://www.linkedin.com/in/soroush-shahbaznejad/"},
+ "navigation":[["Home","#home"],["About","#about"],["Research","#research"],["Publications","#publications"],["Projects","#projects"],["Experience","#experience"],["CV","#cv"],["Contact","#contact"]],
+ "bio":["I am a Ph.D. student in Color Science at the Munsell Color Science Laboratory, Rochester Institute of Technology, advised by Prof. Mekides Assefa Abebe. My research lies at the intersection of human visual perception, material appearance, and computer vision.","I investigate how people perceive glossiness, texture, and translucency, and whether pretrained vision foundation models capture these perceptual attributes. My work combines psychophysical experiments, computational color science, and deep learning to study the relationship between visual representations and human perception.","My long-term interests include perceptually informed representation learning, material appearance modeling, and controllable image generation."],
+ "themes":[
+ ["Material appearance perception","Measuring human judgments of glossiness, texture, and translucency through psychophysical experiments and perceptual rating analysis, and relating perceived appearance to material properties."],
+ ["Vision foundation models","Evaluating frozen pretrained models, including DINOv2, CLIP, MAE, and iBOT, against human perceptual judgments using linear and kernel probing and representational similarity analysis."],
+ ["Color science & computer vision","Studying color spaces and color-based data augmentation for material and skin segmentation, alongside color appearance modeling and image representation analysis."],
+ ["HDR imaging & perceptual rendering","Contributing to collaborative psychophysical studies of emissive color appearance, reference-white placement, and highlight tone mapping for HDR image reproduction."]
+ ],
+ "education":[
+ ["2023–Expected 2028","Ph.D. in Color Science","Rochester Institute of Technology","Munsell Color Science Laboratory · GPA: 3.9/4.0 · Advisor: Prof. Mekides Assefa Abebe. Coursework: Color Physics, Visual Perception Modeling, Color Imaging, Deep Learning."],
+ ["2014–2016","M.Sc. in Textile Sciences and Engineering","Amirkabir University of Technology","Thesis: Evaluating the Effect of Near-Gray Backgrounds on Fluorescent Samples and Whether CIECAM02 Predicts Their Appearance."],
+ ["2010–2014","B.Sc. in Textile Sciences and Engineering","University of Guilan","Ranked 1st in the program."]
+ ],
+ "experience":[
+ ["2023–Present","Doctoral Researcher","Munsell Color Science Laboratory, RIT","Designing psychophysical experiments and benchmarking pretrained models against human material judgments. Building GPU analysis pipelines on RIT’s SPORC cluster; contributing to studies of HDR emissive colors and perceived gloss."],
+ ["Fall 2025","Teaching Assistant · Principles of Color Science","Rochester Institute of Technology","Supported graduate lectures and laboratories taught by Prof. Michael J. Murdoch, covering instrumentation, radiometry, photometry, and spectral color measurement."],
+ ["Feb–Jul 2023","Teaching Assistant · Color Physics","Amirkabir University of Technology","Led measurement and material-appearance laboratories, demonstrated instrument calibration, and graded laboratory reports."],
+ ["Feb 2020–Oct 2021","R&D Specialist · Color Reproducibility","Nikriss Co.","Developed MATLAB and Python workflows for color differences and calibration, combining spectral measurement and experimental validation to improve fabric color reproducibility."]
+ ],
+ "service":[
+ ["2026","Research project contributor","Danny Rich Memorial Scholarship research project, Colour and Imaging Council (CIC). Contributed to a funded Munsell Color Science Laboratory project on perceptually guided HDR highlight rendering and emissive color appearance."],
+ ["2014","First in undergraduate program","Textile Sciences and Engineering, University of Guilan."],
+ ["Service","Peer reviewer","Color Research & Application (Wiley): three manuscripts in color science, color imaging, and visual perception."]
+ ],
+ "skills":[
+ ["Programming","Python, PyTorch, MATLAB, NumPy, pandas, scikit-learn, OpenCV, Git"],
+ ["Machine learning & vision","Vision transformers, foundation models, self-supervised representations, semantic segmentation, linear and kernel probing, representational similarity analysis"],
+ ["Psychophysics & statistics","Experiment design, perceptual judgments, reliability and noise-ceiling analysis, mixed-effects models, bootstrap inference, multiple-comparison control"],
+ ["Color science & imaging","Color appearance models, color management, HDR imaging and tone mapping, spectral imaging, camera characterization, photometry"],
+ ["Scientific computing","SLURM/HPC, GPU feature-extraction pipelines, LaTeX"],
+ ["Instrumentation","Spectroradiometers, spectrophotometers, monochromators, colorimeters, HDR displays"]
+ ]
+}

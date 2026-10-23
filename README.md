@@ -36,7 +36,7 @@ Academic content was transcribed from the original `Shahbaznejad_CV.pdf` supplie
 
 - No professional photograph was supplied; replace the labeled placeholder when ready.
 - The full author list for “Frozen Pretrained Vision Representations and Human Judgments of Material Appearance in Natural Photographs” is abbreviated as `Shahbaznejad, S., et al.` in the CV. It remains abbreviated pending an authoritative full list.
-- Google Scholar URL was extracted directly from the CV's hyperlink. Automated inspection may be blocked by Scholar. LinkedIn may likewise restrict unauthenticated inspection.
+- Google Scholar URL was extracted directly from the CV's hyperlink and the profile name was verified. LinkedIn blocks automated access (HTTP 999), so its supplied URL is retained without a claim of automated verification.
 - CVCS and Electronic Imaging conference records have no DOIs in the supplied CV; none are guessed.
 - “Do Pretrained Vision Models Reflect Human Material Judgments?” is labeled to be presented at Electronic Imaging 2027. The other manuscript is complete with submission planned for November 2026; neither is described as published.
 
